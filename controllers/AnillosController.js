@@ -7,7 +7,7 @@ const getAnillo = async (req, res) => {
         res.json({
             success: true,
             message: 'acá está la lista de Niños Ela',
-            info: ninos
+            info: anillos
         })
     } catch (error) {
         res.json({ success: false, message: 'info no encontrada' });
