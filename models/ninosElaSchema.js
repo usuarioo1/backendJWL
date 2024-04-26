@@ -16,6 +16,10 @@ const ninoElaSchema = new mongoose.Schema({
     
 })
 
+const Ninos = mongoose.model('ninos', ninoElaSchema);
+
+module.exports = Ninos;
+
 
 
 
