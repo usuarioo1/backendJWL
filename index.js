@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
+const netbd = require('./config/configDataBase')
 
 //instaciar express
 
@@ -11,6 +12,8 @@ app.use(cors());
 //adminsion de archivos json
 app.use(express.json())
 
+//llamada a base de datos
+netbd();
 
 //estado y levantamiento del servidor
 
