@@ -3,6 +3,12 @@ const cors = require('cors');
 require('dotenv').config();
 const netbd = require('./config/configDataBase')
 
+const ninosRoute = require('./routes/ninosElaRoute');
+const anillosRoute = require('./routes/anillosRoute');
+const madresRoute = require('./routes/madresYninosRoute');
+const amuletoRoute = require('./routes/amuletosRoute');
+const runaRoute = require('./routes/runasRoute');
+const profesionesRoute = require('./routes/profesionesRoute');
 //instaciar express
 
 const app = express();
@@ -14,6 +20,14 @@ app.use(express.json())
 
 //llamada a base de datos
 netbd();
+
+//ruta del servidor
+app.use(ninosRoute)
+app.use(anillosRoute)
+app.use(madresRoute)
+app.use(amuletoRoute)
+app.use(runaRoute)
+app.use(profesionesRoute)
 
 //estado y levantamiento del servidor
 

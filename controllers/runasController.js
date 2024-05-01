@@ -6,7 +6,7 @@ const getRunas = async (req, res) => {
         const runas = await Runas.find()
         res.json({
             success: true,
-            message: 'acá está la lista de Niños Ela',
+            message: 'acá está la lista de Runas',
             info: runas
         })
     } catch (error) {

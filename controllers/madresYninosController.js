@@ -6,7 +6,7 @@ const getMadre = async (req, res) => {
         const madresYninos = await Madres.find()
         res.json({
             success: true,
-            message: 'acá está la lista de Niños Ela',
+            message: 'acá está la lista de Madres y ninños',
             info: madresYninos
         })
     } catch (error) {

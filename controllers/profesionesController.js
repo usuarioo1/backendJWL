@@ -6,7 +6,7 @@ const getProfeisones = async (req, res) => {
         const profesiones = await Profesiones.find()
         res.json({
             success: true,
-            message: 'acá está la lista de Niños Ela',
+            message: 'acá está la lista de profesiones',
             info: profesiones
         })
     } catch (error) {

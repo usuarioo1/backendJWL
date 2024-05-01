@@ -6,7 +6,7 @@ const getAmuleto = async (req, res) => {
         const amuletos = await Amuletos.find()
         res.json({
             success: true,
-            message: 'acá está la lista de Niños Ela',
+            message: 'acá está la lista de Amuletos',
             info: amuletos
         })
     } catch (error) {
