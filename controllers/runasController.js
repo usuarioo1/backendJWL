@@ -61,11 +61,11 @@ const deleteRuna = async (req, res) => {
 }
 
 const reduceStock = async (req, res) => {
-    const gamePurchased = req.body.cartItems;
+    const runasPurchased = req.body.cartItems;
 
     try {
-        gamePurchased.map(async (game) => {
-            await Anillos.findByIdAndUpdate(game._id, { stock: game.stock - game.quantity }) //REVISAR
+        runasPurchased.map(async (runas) => {
+            await Runas.findByIdAndUpdate(runas._id, { stock: runas.stock - runas.quantity }) //REVISAR
         })
         res.status(201).json({ success: true, message: 'se ha reducido el stock' })
     } catch (error) {

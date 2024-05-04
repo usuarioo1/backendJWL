@@ -61,11 +61,11 @@ const deleteProfesion = async (req, res) => {
 }
 
 const reduceStock = async (req, res) => {
-    const gamePurchased = req.body.cartItems;
+    const profPurchased = req.body.cartItems;
 
     try {
-        gamePurchased.map(async (game) => {
-            await Anillos.findByIdAndUpdate(game._id, { stock: game.stock - game.quantity }) //REVISAR
+        profPurchased.map(async (prof) => {
+            await Profesiones.findByIdAndUpdate(prof._id, { stock: prof.stock - prof.quantity }) //REVISAR
         })
         res.status(201).json({ success: true, message: 'se ha reducido el stock' })
     } catch (error) {

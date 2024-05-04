@@ -60,11 +60,11 @@ const deleteAmuleto = async (req, res) => {
 }
 
 const reduceStock = async (req, res) => {
-    const gamePurchased = req.body.cartItems;
+    const amuletoPurchased = req.body.cartItems;
 
     try {
-        gamePurchased.map(async (game) => {
-            await Anillos.findByIdAndUpdate(game._id, { stock: game.stock - game.quantity }) //REVISAR
+        amuletoPurchased.map(async (amuleto) => {
+            await Amuletos.findByIdAndUpdate(amuleto._id, { stock: amuleto.stock - amuleto.quantity }) //REVISAR
         })
         res.status(201).json({ success: true, message: 'se ha reducido el stock' })
     } catch (error) {

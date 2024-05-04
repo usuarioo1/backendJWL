@@ -17,7 +17,7 @@ const getMadre = async (req, res) => {
 
 const getMadreById = async (req, res) => {
 
-    try {  b 
+    try {  
         const { id } = req.params;
         const madreById = await Madres.findById(id);
         res.json({ success: true, message: 'producto solicitado', madreById })
@@ -61,11 +61,11 @@ const deleteMadre = async (req, res) => {
 }
 
 const reduceStock = async (req, res) => {
-    const gamePurchased = req.body.cartItems;
+    const madres = req.body.cartItems;
 
     try {
-        gamePurchased.map(async (game) => {
-            await Anillos.findByIdAndUpdate(game._id, { stock: game.stock - game.quantity }) //REVISAR
+        madresPurchased.map(async (madres) => {
+            await Madres.findByIdAndUpdate(madres._id, { stock: madres.stock - madres.quantity }) //REVISAR
         })
         res.status(201).json({ success: true, message: 'se ha reducido el stock' })
     } catch (error) {
