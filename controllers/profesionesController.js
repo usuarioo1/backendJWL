@@ -32,7 +32,7 @@ const getProfesionById = async (req, res) => {
 
 const createProfesion= async (req, res) => {
     try {
-        const newProduct = new Product(req.body);
+        const newProduct = new Profesiones(req.body);
         await newProduct.save();
         res.status(201).json({ succes: true, message: "producto creado", info: newProduct });
     } catch (error) {

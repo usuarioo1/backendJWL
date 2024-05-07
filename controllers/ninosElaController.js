@@ -32,11 +32,12 @@ const getNinoById = async (req, res) => {
 
 const createNinoEla = async (req, res) => {
     try {
-        const newProduct = new Product(req.body);
+        const newProduct = new Ninos(req.body);
         await newProduct.save();
         res.status(201).json({ succes: true, message: "producto creado", info: newProduct });
     } catch (error) {
         res.status(500).json({ succees: false, messagee: error.message });
+        console.error(error)
     }
 }
 

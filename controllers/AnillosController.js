@@ -32,7 +32,7 @@ const getAnilloById = async (req, res) => {
 
 const createAnillo= async (req, res) => {
     try {
-        const newProduct = new Product(req.body);
+        const newProduct = new Anillos(req.body);
         await newProduct.save();
         res.status(201).json({ succes: true, message: "producto creado", info: newProduct });
     } catch (error) {

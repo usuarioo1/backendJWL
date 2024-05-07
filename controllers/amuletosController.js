@@ -31,7 +31,7 @@ const getAmuletoById = async (req, res) => {
 
 const createAmuleto= async (req, res) => {
     try {
-        const newProduct = new Product(req.body);
+        const newProduct = new Amuletos(req.body);
         await newProduct.save();
         res.status(201).json({ succes: true, message: "producto creado", info: newProduct });
     } catch (error) {

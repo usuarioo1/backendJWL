@@ -32,7 +32,7 @@ const getMadreById = async (req, res) => {
 
 const createMadre= async (req, res) => {
     try {
-        const newProduct = new Product(req.body);
+        const newProduct = new Madres(req.body);
         await newProduct.save();
         res.status(201).json({ succes: true, message: "producto creado", info: newProduct });
     } catch (error) {
