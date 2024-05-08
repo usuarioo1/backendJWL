@@ -3,7 +3,7 @@ const {getProfeisones, getProfesionById, createProfesion, updateProfesion, delet
 const profesionesRoute = express.Router();
 
 profesionesRoute.route('/profesiones').get(getProfeisones);
-profesionesRoute.route('profesiones/:id').get(getProfesionById).put(updateProfesion).delete(deleteProfesion);
+profesionesRoute.route('/profesiones/:id').get(getProfesionById).put(updateProfesion).delete(deleteProfesion);
 profesionesRoute.route('/createProfesion').post(createProfesion);
 
 module.exports = profesionesRoute;

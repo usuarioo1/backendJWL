@@ -3,7 +3,7 @@ const {getRunas, getRunaById, createRuna, updateRuna, deleteRuna} = require('../
 const runaRoute = express.Router();
 
 runaRoute.route('/runas').get(getRunas);
-runaRoute.route('runas/:id').get(getRunaById).put(updateRuna).delete(deleteRuna);
+runaRoute.route('/runas/:id').get(getRunaById).put(updateRuna).delete(deleteRuna);
 runaRoute.route('/createRuna').post(createRuna)
 
 module.exports = runaRoute;
