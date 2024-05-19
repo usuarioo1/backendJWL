@@ -9,6 +9,8 @@ const madresRoute = require('./routes/madresYninosRoute');
 const amuletoRoute = require('./routes/amuletosRoute');
 const runaRoute = require('./routes/runasRoute');
 const profesionesRoute = require('./routes/profesionesRoute');
+const cartRouter = require('./routes/cartRoute')
+
 //instaciar express
 
 const app = express();
@@ -28,6 +30,7 @@ app.use(madresRoute)
 app.use(amuletoRoute)
 app.use(runaRoute)
 app.use(profesionesRoute)
+app.use(cartRouter)
 
 //estado y levantamiento del servidor
 
