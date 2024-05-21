@@ -61,7 +61,7 @@ const deleteMadre = async (req, res) => {
 }
 
 const reduceStock = async (req, res) => {
-    const madres = req.body.cartItems;
+    const madresPurchased = req.body.cartItems;
 
     try {
         madresPurchased.map(async (madres) => {

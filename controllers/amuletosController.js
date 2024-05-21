@@ -1,5 +1,7 @@
 const Amuletos = require('../models/amuletosSchema');
 
+// hacer usuarios --> asociar a sku --> carrito
+
 const getAmuleto = async (req, res) => {
 
     try {
