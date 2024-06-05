@@ -48,3 +48,15 @@ const updateBlog = async (req, res) => {
         res.status(500).json({ success: false, message: 'Error al actualizar articulo' });
     }
 }
+
+const deleteBlog = async (req, res) => {
+    try {
+        const { id } = req.params;
+        await Blog.findByIdAndDelete(id);
+        res.json({ success: true, message: 'Articulo Eliminado' });
+    } catch (error) {
+        res.status(500).json({ success: false, message: 'Error al eliminar el articulo' });
+    }
+}
+
+module.exports = {getBlog, getBlogById, createBlog, deleteBlog, updateBlog};
