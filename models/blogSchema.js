@@ -4,7 +4,7 @@ const blogSchema = new mongoose.Schema(
     {
         titulo: {type: String, require:true},
         img:{type:String, require:true},
-        contenido:{type:string, require:true}
+        contenido:{type: String, require:true}
 
     }
 )
