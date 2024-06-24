@@ -3,7 +3,7 @@ const {loginRegister, editUser, deleteUser, getUser, loginUser, getProfile, getV
 
 const userRouter = express.Router();
 
-userRouter.route("/users").get( getUser);
+userRouter.route("/users").get(getUser);
 
 userRouter.route("/users/:id").put(editUser).delete(deleteUser).get(getProfile);
 
