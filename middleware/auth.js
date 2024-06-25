@@ -23,4 +23,4 @@ const auth = expressjwt({
     getToken: req => req.token
 });
 
-module.exports = auth;
+module.exports = { getToken, auth };
