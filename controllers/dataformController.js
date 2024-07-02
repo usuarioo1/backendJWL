@@ -26,3 +26,15 @@ const getDataFormById = async(req,res) => {
         res.status(500).json({ success: false, message: 'info no encontrada' })
     }
 }
+
+const createDataForm= async (req, res) => {
+    try {
+        const newDataForm = new DataForm(req.body);
+        await newDataForm.save();
+        res.status(201).json({ succes: true, message: "info enviada", info: newDataForm });
+    } catch (error) {
+        res.status(500).json({ succees: false, messagee: error.message });
+    }
+}
+
+module.exports = {getDataForm, getDataFormById, createDataForm};
