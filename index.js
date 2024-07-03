@@ -11,7 +11,9 @@ const runaRoute = require('./routes/runasRoute');
 const profesionesRoute = require('./routes/profesionesRoute');
 const cartRouter = require('./routes/cartRoute')
 const blogRoute = require('./routes/blogRoute')
-const userRoute = require('./routes/userRoute')
+const userRoute = require('./routes/userRoute');
+const bannerRoute = require('./routes/bannerRoute');
+const dataFormRoute = require('./routes/dataFormRoute');
 
 //instaciar express
 
@@ -35,6 +37,8 @@ app.use(profesionesRoute)
 app.use(cartRouter)
 app.use(blogRoute)
 app.use(userRoute)
+app.use(bannerRoute)
+app.use(dataFormRoute)
 //estado y levantamiento del servidor
 
 app.listen(process.env.PORT, () => {

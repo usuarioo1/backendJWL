@@ -37,4 +37,12 @@ const createDataForm= async (req, res) => {
     }
 }
 
+const editDataForm = async(req, res) => {
+    try {
+        
+    } catch (error) {
+        
+    }
+}
+
 module.exports = {getDataForm, getDataFormById, createDataForm};
