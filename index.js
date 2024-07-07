@@ -15,6 +15,7 @@ const userRoute = require('./routes/userRoute');
 const bannerRoute = require('./routes/bannerRoute');
 const dataFormRoute = require('./routes/dataFormRoute');
 const reviewRoute = require('./routes/reviewRoute');
+const routerAdmin = require('./routes/adminRoutes');
 
 //instaciar express
 
@@ -41,6 +42,7 @@ app.use(userRoute)
 app.use(bannerRoute)
 app.use(dataFormRoute)
 app.use(reviewRoute)
+app.use(routerAdmin)
 //estado y levantamiento del servidor
 
 app.listen(process.env.PORT, () => {

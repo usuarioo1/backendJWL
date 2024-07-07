@@ -120,4 +120,18 @@ const getVerifyUser = async (req, res) => {
     }
 };
 
-module.exports = { loginRegister, getUser, editUser, deleteUser, loginUser, getProfile, getVerifyUser };
+const updateAdminStatus = async (req, res) => {
+    try {
+        const user = await User.findById(req.params.id);
+        if (!user) {
+            return res.status(404).send('Usuario no encontrado');
+        }
+        user.isAdmin = req.body.isAdmin;
+        await user.save();
+        res.send(user);
+    } catch (err) {
+        res.status(400).send(err);
+    }
+};
+
+module.exports = { loginRegister, getUser, editUser, deleteUser, loginUser, getProfile, getVerifyUser, updateAdminStatus };

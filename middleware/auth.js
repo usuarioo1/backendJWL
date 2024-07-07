@@ -1,3 +1,4 @@
+// middleware/auth.js
 const { expressjwt } = require('express-jwt');
 require('dotenv').config();
 
@@ -23,4 +24,14 @@ const auth = expressjwt({
     getToken: req => req.token
 });
 
-module.exports = { getToken, auth };
+const adminAuth = (req, res, next) => {
+    const { user } = req;
+    if (user && user.isAdmin) {
+        next();
+    } else {
+        res.status(403).send('Acceso denegado. Solo administradores.');
+    }
+};
+
+module.exports = { getToken, auth, adminAuth };
+
