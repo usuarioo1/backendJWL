@@ -18,7 +18,7 @@ const getDataForm = async(req, res) => {
 const getDataFormById = async(req,res) => {
 
     try {
-        const {id} = param;
+        const {id} = req.params;
         const dataClientById = await DataForm.findById(id);
         res.status(200).json({ success: false, message: 'info cliente', dataClientById });
         

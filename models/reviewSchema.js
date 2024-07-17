@@ -1,10 +1,11 @@
 const mongoose = require('mongoose')
 
 const reviewSchema = new mongoose.Schema({
-    name: {type: String,
+    title: {type: String,
         require:true
     },
-    review: {type:String, require:true},
+    content: {type:String, require:true},
+    author: {type:String, require:true}
 
 })
 
