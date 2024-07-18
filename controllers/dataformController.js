@@ -18,7 +18,7 @@ const getDataForm = async(req, res) => {
 const getDataFormById = async(req,res) => {
 
     try {
-        const {id} = param;
+        const {id} = req.params;
         const dataClientById = await DataForm.findById(id);
         res.status(200).json({ success: false, message: 'info cliente', dataClientById });
         
@@ -31,9 +31,9 @@ const createDataForm= async (req, res) => {
     try {
         const newDataForm = new DataForm(req.body);
         await newDataForm.save();
-        res.status(201).json({ succes: true, message: "info enviada", info: newDataForm });
+        res.status(201).json({ success: true, message: "info enviada", info: newDataForm });
     } catch (error) {
-        res.status(500).json({ succees: false, messagee: error.message });
+        res.status(500).json({ success: false, message: error.message });
     }
 }
 
