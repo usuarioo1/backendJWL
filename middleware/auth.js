@@ -1,4 +1,4 @@
-// middleware/auth.js
+// middleware/auth.js;
 const { expressjwt } = require('express-jwt');
 require('dotenv').config();
 

@@ -30,6 +30,29 @@ const userSchema = new mongoose.Schema({
         type: Boolean,
         default: false,
     },
+    address: {
+        type: String,
+        required: true,
+    },
+    phone: {
+        type: Number,
+        required: true,
+    },
+    region: {
+        type: String,
+        required: true,
+    },
+    comuna: {
+        type: String,
+        required: true,
+    },
+    departamento: {
+        type: Number,
+        required: true,
+    },
+    referencias: {
+        type: String,
+    },
 });
 
 userSchema.methods.encriptarPassword = function (password) {
