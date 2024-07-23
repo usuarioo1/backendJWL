@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const ninoElaSchema = new mongoose.Schema({
+const cadenasSchema = new mongoose.Schema({
     nombre: {type: String, require: true},
     categoria: {type:String, require:true},
     descripcion: {type:String, require:true},
@@ -16,10 +16,6 @@ const ninoElaSchema = new mongoose.Schema({
     
 })
 
-const Ninos = mongoose.model('ninos', ninoElaSchema);
+const Cadenas = mongoose.model('cadenas', cadenasSchema);
 
-module.exports = Ninos;
-
-
-
-
+module.exports = Cadenas;

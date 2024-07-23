@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const profesionesSchema = new mongoose.Schema({
+const collaresSchema = new mongoose.Schema({
     nombre: {type: String, require: true},
     categoria: {type:String, require:true},
     descripcion: {type:String, require:true},
@@ -16,9 +16,6 @@ const profesionesSchema = new mongoose.Schema({
     
 })
 
-const Profesiones = mongoose.model('profesiones', profesionesSchema);
+const Collares = mongoose.model('collares', collaresSchema);
 
-module.exports = Profesiones;
-
-
-
+module.exports = Collares;

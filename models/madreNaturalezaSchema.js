@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const madresSchema = new mongoose.Schema({
+const madreNaturalezaSchema = new mongoose.Schema({
     nombre: {type: String, require: true},
     categoria: {type:String, require:true},
     descripcion: {type:String, require:true},
@@ -16,9 +16,6 @@ const madresSchema = new mongoose.Schema({
     
 })
 
-const Madres = mongoose.model('madres', madresSchema);
+const MadreNaturaleza = mongoose.model('madrenaturaleza', madreNaturalezaSchema);
 
-module.exports = Madres;
-
-
-
+module.exports = MadreNaturaleza;

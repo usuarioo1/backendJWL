@@ -3,12 +3,11 @@ const cors = require('cors');
 require('dotenv').config();
 const netbd = require('./config/configDataBase')
 
-const ninosRoute = require('./routes/ninosElaRoute');
+
 const anillosRoute = require('./routes/anillosRoute');
-const madresRoute = require('./routes/madresYninosRoute');
 const amuletoRoute = require('./routes/amuletosRoute');
-const runaRoute = require('./routes/runasRoute');
-const profesionesRoute = require('./routes/profesionesRoute');
+const arosPiedrasNaturalesRoute = require('./routes/arosPiedrasNaturalesRoute')
+const arosPlataLisaRoute = require('./routes/arosPlataLisaRoute')
 const cartRouter = require('./routes/cartRoute')
 const blogRoute = require('./routes/blogRoute')
 const userRoute = require('./routes/userRoute');
@@ -16,6 +15,12 @@ const bannerRoute = require('./routes/bannerRoute');
 const dataFormRoute = require('./routes/dataFormRoute');
 const reviewRoute = require('./routes/reviewRoute');
 const routerAdmin = require('./routes/adminRoutes');
+const cadenasRoute = require('./routes/cadenasRoute');
+const colgantesPiedrasNaturalesRoute = require('./routes/colgantesPiedrasNaturalesRoute');
+const collaresRoute = require('./routes/collaresRoute');
+const madreNaturalezaRoute = require('./routes/madreNaturalezaRoute');
+const pulserasRoute = require('./routes/pulseraRoute');
+const religiosoRoute = require('./routes/religiosoRoute');
 
 //instaciar express
 
@@ -30,12 +35,17 @@ app.use(express.json())
 netbd();
 
 //ruta del servidor
-app.use(ninosRoute)
+
 app.use(anillosRoute)
-app.use(madresRoute)
 app.use(amuletoRoute)
-app.use(runaRoute)
-app.use(profesionesRoute)
+app.use(arosPiedrasNaturalesRoute)
+app.use(arosPlataLisaRoute)
+app.use(colgantesPiedrasNaturalesRoute)
+app.use(religiosoRoute)
+app.use(collaresRoute)
+app.use(madreNaturalezaRoute)
+app.use(pulserasRoute)
+app.use(cadenasRoute)
 app.use(cartRouter)
 app.use(blogRoute)
 app.use(userRoute)

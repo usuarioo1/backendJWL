@@ -1,13 +1,13 @@
-const Profesiones = require('../models/profesionesSchema');
+const Cabala = require('../models/cabalaSchema.js')
 
-const getProfeisones = async (req, res) => {
+const getCabala = async (req, res) => {
 
     try {
-        const profesiones = await Profesiones.find()
+        const cabala = await Cabala.find()
         res.json({
             success: true,
-            message: 'acá está la lista de profesiones',
-            info: profesiones
+            message: 'acá está la lista de cabalas',
+            info: cabala
         })
     } catch (error) {
         res.json({ success: false, message: 'info no encontrada' });
@@ -15,12 +15,12 @@ const getProfeisones = async (req, res) => {
     }
 }
 
-const getProfesionById = async (req, res) => {
+const getCabalaById = async (req, res) => {
 
-    try { 
+    try {
         const { id } = req.params;
-        const profesionById = await Profesiones.findById(id);
-        res.json({ success: true, message: 'producto solicitado', profesionById })
+        const cabalaById = await Cabala.findById(id);
+        res.json({ success: true, message: 'producto solicitado', cabalaById })
 
     } catch (error) {
 
@@ -30,30 +30,31 @@ const getProfesionById = async (req, res) => {
 
 }
 
-const createProfesion= async (req, res) => {
+const createCabala = async (req, res) => {
     try {
-        const newProduct = new Profesiones(req.body);
+        const newProduct = new Cabala(req.body);
         await newProduct.save();
         res.status(201).json({ succes: true, message: "producto creado", info: newProduct });
     } catch (error) {
         res.status(500).json({ succees: false, messagee: error.message });
+        console.error(error)
     }
 }
 
-const updateProfesion = async (req, res) => {
+const updateCabala = async (req, res) => {
     try {
         const { id } = req.params;
-        const updatedProduct = await Profesiones.findByIdAndUpdate(id, req.body, { new: true });
+        const updatedProduct = await Cabala.findByIdAndUpdate(id, req.body, { new: true });
         res.json({ success: true, message: 'Producto actualizado', info: updatedProduct });
     } catch (error) {
         res.status(500).json({ success: false, message: 'Error al actualizar el producto' });
     }
 }
 
-const deleteProfesion = async (req, res) => {
+const deleteCabala = async (req, res) => {
     try {
         const { id } = req.params;
-        await Profesiones.findByIdAndDelete(id);
+        await Cabala.findByIdAndDelete(id);
         res.json({ success: true, message: 'Producto eliminado' });
     } catch (error) {
         res.status(500).json({ success: false, message: 'Error al eliminar el producto' });
@@ -61,11 +62,11 @@ const deleteProfesion = async (req, res) => {
 }
 
 const reduceStock = async (req, res) => {
-    const profPurchased = req.body.cartItems;
+    const cabalaPurchased = req.body.cartItems;
 
     try {
-        profPurchased.map(async (prof) => {
-            await Profesiones.findByIdAndUpdate(prof._id, { stock: prof.stock - prof.quantity }) //REVISAR
+        cabalaPurchased.map(async (cabala) => {
+            await Cabala.findByIdAndUpdate(cabala._id, { stock: cabala.stock - cabala.quantity })
         })
         res.status(201).json({ success: true, message: 'se ha reducido el stock' })
     } catch (error) {
@@ -76,4 +77,4 @@ const reduceStock = async (req, res) => {
     }
 }
 
-module.exports = {getProfeisones, getProfesionById, updateProfesion, createProfesion, deleteProfesion, reduceStock};
+module.exports = { getCabala, getCabalaById, createCabala, updateCabala, deleteCabala, reduceStock };

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const runasSchema = new mongoose.Schema({
+const cabalaSchema = new mongoose.Schema({
     nombre: {type: String, require: true},
     categoria: {type:String, require:true},
     descripcion: {type:String, require:true},
@@ -16,9 +16,9 @@ const runasSchema = new mongoose.Schema({
     
 })
 
-const Runas = mongoose.model('runas', runasSchema);
+const Cabala = mongoose.model('cabala', cabalaSchema);
 
-module.exports = Runas;
+module.exports = Cabala;
 
 
 

@@ -1,13 +1,13 @@
-const Ninos = require('../models/ninosElaSchema');
+const MadreNaturaleza = require('../models/madreNaturalezaSchema');
 
-const getNinoEla = async (req, res) => {
+const getMadreNaturaleza = async (req, res) => {
 
     try {
-        const ninos = await Ninos.find()
+        const madreNaturaleza = await MadreNaturaleza.find()
         res.json({
             success: true,
-            message: 'acá está la lista de Niños Ela',
-            info: ninos
+            message: 'acá está la lista de Anillos',
+            info: madreNaturaleza
         })
     } catch (error) {
         res.json({ success: false, message: 'info no encontrada' });
@@ -15,12 +15,12 @@ const getNinoEla = async (req, res) => {
     }
 }
 
-const getNinoById = async (req, res) => {
+const getMadreNaturalezaById = async (req, res) => {
 
     try {
         const { id } = req.params;
-        const NinoById = await Ninos.findById(id);
-        res.json({ success: true, message: 'producto solicitado', NinoById })
+        const madreNaturalezaById = await MadreNaturaleza.findById(id);
+        res.json({ success: true, message: 'producto solicitado', madreNaturalezaById })
 
     } catch (error) {
 
@@ -30,31 +30,30 @@ const getNinoById = async (req, res) => {
 
 }
 
-const createNinoEla = async (req, res) => {
+const createMadreNaturaleza = async (req, res) => {
     try {
-        const newProduct = new Ninos(req.body);
+        const newProduct = new MadreNaturaleza(req.body);
         await newProduct.save();
         res.status(201).json({ succes: true, message: "producto creado", info: newProduct });
     } catch (error) {
         res.status(500).json({ succees: false, messagee: error.message });
-        console.error(error)
     }
 }
 
-const updateNinoEla = async (req, res) => {
+const updateMadreNaturaleza = async (req, res) => {
     try {
         const { id } = req.params;
-        const updatedProduct = await Ninos.findByIdAndUpdate(id, req.body, { new: true });
+        const updatedProduct = await MadreNaturaleza.findByIdAndUpdate(id, req.body, { new: true });
         res.json({ success: true, message: 'Producto actualizado', info: updatedProduct });
     } catch (error) {
         res.status(500).json({ success: false, message: 'Error al actualizar el producto' });
     }
 }
 
-const deleteNinoEla = async (req, res) => {
+const deleteMadreNaturaleza = async (req, res) => {
     try {
         const { id } = req.params;
-        await Ninos.findByIdAndDelete(id);
+        await MadreNaturaleza.findByIdAndDelete(id);
         res.json({ success: true, message: 'Producto eliminado' });
     } catch (error) {
         res.status(500).json({ success: false, message: 'Error al eliminar el producto' });
@@ -62,11 +61,11 @@ const deleteNinoEla = async (req, res) => {
 }
 
 const reduceStock = async (req, res) => {
-    const ninosPurchased = req.body.cartItems;
+    const madreNaturalezaPurchased = req.body.cartItems;
 
     try {
-        ninosPurchased.map(async (ninos) => {
-            await Ninos.findByIdAndUpdate(ninos._id, { stock: ninos.stock - ninos.quantity })
+        madreNaturalezaPurchased.map(async (madrenaturaleza) => {
+            await MadreNaturaleza.findByIdAndUpdate(madrenaturaleza._id, { stock: madrenaturaleza.stock - madrenaturaleza.quantity }) //REVISAR
         })
         res.status(201).json({ success: true, message: 'se ha reducido el stock' })
     } catch (error) {
@@ -77,4 +76,4 @@ const reduceStock = async (req, res) => {
     }
 }
 
-module.exports = { getNinoEla, getNinoById, createNinoEla, updateNinoEla, deleteNinoEla, reduceStock };
+module.exports = {getMadreNaturaleza, getMadreNaturalezaById, createMadreNaturaleza, deleteMadreNaturaleza, updateMadreNaturaleza, reduceStock}
