@@ -7,7 +7,6 @@ const netbd = require('./config/configDataBase')
 const anillosRoute = require('./routes/anillosRoute');
 const amuletoRoute = require('./routes/amuletosRoute');
 const arosPiedrasNaturalesRoute = require('./routes/arosPiedrasNaturalesRoute')
-const arosPlataLisaRoute = require('./routes/arosPlataLisaRoute')
 const cartRouter = require('./routes/cartRoute')
 const blogRoute = require('./routes/blogRoute')
 const userRoute = require('./routes/userRoute');
@@ -39,7 +38,6 @@ netbd();
 app.use(anillosRoute)
 app.use(amuletoRoute)
 app.use(arosPiedrasNaturalesRoute)
-app.use(arosPlataLisaRoute)
 app.use(colgantesPiedrasNaturalesRoute)
 app.use(religiosoRoute)
 app.use(collaresRoute)

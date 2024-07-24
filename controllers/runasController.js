@@ -1,4 +1,4 @@
-const Runas = require('../models/runasSchema');
+const Runas = require('../models/runaSchema');
 
 const getRunas = async (req, res) => {
 
